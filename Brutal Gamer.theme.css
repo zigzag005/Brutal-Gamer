@@ -1,89 +1,198 @@
 /**
- * @name Eclipse
+ * @name Brutal Gamer
  * @author ZigZag
- * @description Eclipse is a sleek, modern Discord theme featuring a dark color palette with vibrant neon accents, offering a futuristic and immersive user experience. The design emphasizes clarity, smooth transitions, and an intuitive, cohesive interface, ideal for those who appreciate a high-tech aesthetic.
- * @version 0.0.1
+ * @description Custom Discord theme with a dark background, neon accents, and a futuristic vibe.
+ * @version 1.1.0
  */
 
- :root {
-    --primary-bg: #1e1e2f;
-    --secondary-bg: #2b2b45;
-    --accent-color: #00d4ff;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0c0;
-    --scrollbar-bg: #2b2b45;
-    --scrollbar-thumb: #00d4ff;
-    --hover-bg: rgba(0, 212, 255, 0.1);
-  }
+ @import url('https://discordstyles.github.io/HorizontalServerList/dist/HorizontalServerList.css');
+ @import url('https://DiscordStyles.github.io/DarkMatter/src/base.css');
 
-  body {
-    background-color: var(--primary-bg);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
+:root {
+  --HSL-server-icon-size: 40px;
+  --HSL-server-spacing: 10px;
+  --HSL-server-direction: column;
+  --HSL-server-alignment: flex-start;
+  --avatar-size: 40px;
+  --background-color: #181818;
+  --background-dark: #121212;
+  --gradient-start: #1a1a1a;
+  --gradient-end: #000000;
+  --accent-color: 255, 0, 0;
+  --text-color: #E6E6E6;
+  --border-color: #333333;
+  --button-hover-color: rgba(0, 174, 255, 0.3);
+  --message-background: #2A2A2A;
+  --message-border: #444444;
+  --channel-hover-color: rgba(0, 195, 255, 0.15);
+  --overlay-opacity: 0.5;
+  --font-primary: 'Karla', sans-serif;
+	--font-display: var(--font-primary) !important;
+	--avatar-size: 32px;
+	--background-image: url('https://i.imgur.com/7SbtKvw.png');
+	--home-image: url('https://i.imgur.com/233d55Y.gif');
+	--accent: 37, 172, 232;
+	--accent-alt: 29, 101, 134;
+	--md-black: 0, 0, 0;
+	--dm-white: 255, 255, 255;
+	--accentcolor: var(--accent);
+	--vaccentcolor-hover: rgb(var(--accent));
+	--vaccentcolor-active: rgb(var(--accent));
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-color);
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png'); /* Tekstura tkanine */
+  opacity: var(--overlay-opacity);
+  pointer-events: none;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
   }
-  
-  .sidebar {
-    background-color: var(--secondary-bg);
-    border-right: 2px solid var(--accent-color);
+  50% {
+      background-position: 100% 50%;
   }
-  
-  .sidebar .channel {
-    color: var(--text-secondary);
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+  100% {
+      background-position: 0% 50%;
   }
-  
-  .sidebar .channel:hover {
-    background-color: var(--hover-bg);
-    color: var(--text-primary);
+}
+
+.sidebar-2GZDXK {
+  background-color: var(--background-dark) !important;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.6);
+  border-right: 1px solid var(--border-color);
+}
+
+.app-2oS6J8 {
+  background-color: var(--background-dark) !important;
+}
+
+.container-2s6JAf .active-2A2qjj {
+  background-color: rgba(var(--accent-color), 0.1) !important;
+  border-left: 4px solid rgb(var(--accent-color)) !important;
+}
+
+.message-3tqYzY {
+  background-color: var(--message-background) !important;
+  border: 1px solid var(--message-border) !important;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.message-3tqYzY:hover {
+  background-color: var(--background-dark) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .message-3tqYzY, .channelName-2Kfovh {
+  color: var(--text-color) !important;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+@keyframes neonGlow {
+  0% {
+      text-shadow: 0 0 10px rgba(var(--accent-color), 0.5), 0 0 20px rgba(var(--accent-color), 0.5), 0 0 30px rgba(var(--accent-color), 0.5);
   }
-  
-  .header {
-    background-color: var(--secondary-bg);
-    border-bottom: 2px solid var(--accent-color);
-    padding: 10px;
+  50% {
+      text-shadow: 0 0 20px rgba(var(--accent-color), 1), 0 0 40px rgba(var(--accent-color), 1), 0 0 60px rgba(var(--accent-color), 1);
   }
-  
-  .chat {
-    background-color: var(--primary-bg);
-    padding: 20px;
-    overflow-y: auto;
+  100% {
+      text-shadow: 0 0 10px rgba(var(--accent-color), 0.5), 0 0 20px rgba(var(--accent-color), 0.5), 0 0 30px rgba(var(--accent-color), 0.5);
   }
-  
-  .chat .message {
-    background-color: var(--secondary-bg);
-    color: var(--text-primary);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .chat .message:hover {
-    background-color: var(--hover-bg);
-  }
-  
-  ::-webkit-scrollbar {
-    width: 8px;
-    background-color: var(--scrollbar-bg);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 4px;
-  }
-  
-  .button {
-    background-color: var(--accent-color);
-    color: var(--text-primary);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .button:hover {
-    background-color: rgba(0, 212, 255, 0.8);
-  }
-  
+}
+
+.avatar-2DPxnB {
+  width: var(--avatar-size) !important;
+  height: var(--avatar-size) !important;
+  border-radius: 50%;
+  border: 2px solid var(--background-color) !important;
+  transition: all 0.3s ease;
+}
+
+.avatar-2DPxnB:hover {
+  box-shadow: 0 0 15px rgba(var(--accent-color), 0.8);
+  transform: scale(1.1);
+}
+
+button, .btn-2JrMCr {
+  border: 2px solid rgba(var(--accent-color), 0.8);
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn-2JrMCr:hover {
+  background-color: rgba(var(--accent-color), 0.1);
+  box-shadow: 0 0 10px rgba(var(--accent-color), 0.8);
+}
+
+textarea, input[type="text"] {
+  background-color: var(--background-dark) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 6px !important;
+  padding: 8px !important;
+}
+
+textarea:focus, input[type="text"]:focus {
+  border-color: rgba(var(--accent-color), 1) !important;
+}
+
+.status-online-3t7gXx {
+  background-color: #43b581 !important;
+}
+
+.status-idle-1gw1ZB {
+  background-color: #faa61a !important;
+}
+
+.status-dnd-3Km4jG {
+  background-color: #477df0 !important;
+}
+
+.status-offline-3e3xtv {
+  background-color: #b9bbbe !important;
+}
+
+.channel-2QD9Gl:hover {
+  background-color: var(--channel-hover-color) !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.tooltip-2JwGHV {
+  background-color: rgba(var(--accent-color), 0.8) !important;
+  color: var(--text-color) !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+}
+
+.server-2zvScc {
+  border-radius: 50% !important;
+  box-shadow: 0 0 5px rgba(var(--accent-color), 0.6) !important;
+}
